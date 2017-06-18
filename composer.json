@@ -1,0 +1,6 @@
+{
+    "require": {
+        "fzaninotto/faker": "^1.6",
+        "bcosca/fatfree-core": "^3.6"
+    }
+}

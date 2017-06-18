@@ -1,0 +1,104 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h4>{{ @app.name }}</h4>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-3">
+      <div class="db-selector">
+        Select database : <br>
+        <select name="dbname" id="dbname" class="form-control">
+          <option value="">Please select a database ...</option>
+          <repeat group="{{ @databases }}" value="{{ @dbname }}">
+            <option value="{{ @dbname }}">{{ @dbname }}</option>
+          </repeat>
+        </select>
+      </div>
+      <div class="table-selector">
+        <table class="table table-bordered table-striped table-hover" style="display: none">
+          <thead>
+            <tr>
+              <th title="check all"><input type="checkbox" name="check_all" id="check_all"></th>
+              <th>No</th>
+              <th>Table Name</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+    <div class="col-md-9">
+      <div class="table-configuration">
+        <div class="pull-right">
+          <div class="btn-group add-gap-below">
+            <button class="btn btn-default" id="btn-reset">Reset</button>
+            <button disabled class="btn btn-primary" id="build-statement">Execute</button>
+          </div>
+        </div>
+        <table class="table table-bordered table-striped table-hover" style="display: none">
+          <thead>
+            <tr>
+              <th title="check all">
+                <!-- <input type="checkbox" name="check_all" id="check_all"> -->
+              </th>
+              <th>No</th>
+              <th>Column Name</th>
+              <th style="width: 120px">Filler</th>
+              <th>Args</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" tabindex="-1" role="dialog" id="edit-args-dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Change Args</h4>
+      </div>
+      <div class="modal-body">
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Value</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="base hide">
+              <td><input type="text" name="name" class="form-control" disabled></td>
+              <td><input type="text" name="value" class="form-control"></td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="alert alert-info">
+          <strong>Note</strong>: Fill argument array with comma-separated style.
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-primary">OK</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<div class="modal fade" tabindex="-1" role="dialog" id="progress-dialog" data-backdrop="static" data-keyboard="false">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Progress</h4>
+      </div>
+      <div class="modal-body"></div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

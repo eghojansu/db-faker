@@ -1,0 +1,86 @@
+html, body {
+  height: 100%;
+}
+body {
+  overflow: hidden;
+}
+.main-layout {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.main-header {
+  flex: 0 0 auto;
+  border-bottom: solid 1px #ddd;
+}
+.main-content {
+  flex: 1 1 auto;
+  position: relative; /* need this to position inner content */
+  overflow-y: auto;
+}
+.main-footer {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  flex: 0 0 auto;
+  border-top: solid 1px #ddd;
+}
+
+.main-navbar {
+  margin-bottom: 0;
+  background-color: transparent;
+  border-color: transparent;
+}
+
+.nav-bottom {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.nav-bottom li {
+  display: inline;
+  margin-right: 10px;
+}
+.nav-bottom li:last-child {
+  margin-right: 0;
+}
+.nav-bottom li a:before {
+  content: '\E220';
+  margin-right: 5px;
+}
+.nav-bottom a:hover {
+  text-decoration: none;
+}
+
+.main-content .container {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.footer-column {
+  text-align: center;
+}
+
+.db-selector {}
+.table-selector {
+  margin-top: 20px;
+}
+.table-configuration {}
+.add-gap-below {
+  margin-bottom: 20px;
+}
+
+.table .checkbox {
+  margin: 0;
+}
+
+@media only screen
+  and (min-device-width: 768px) {
+
+  .footer-column:first-child {
+    text-align: right;
+  }
+  .footer-column:last-child {
+    text-align: left;
+  }
+
+}

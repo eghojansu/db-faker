@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{{ @app.name }}</title>
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/bootstrap-select/css/bootstrap-select.min.css">
+  <link rel="stylesheet" href="assets/css/app.css">
+  <script src="assets/js/jquery.min.js"></script>
+  <script>
+    (function($) {
+      $.app = {
+        url: {
+          config: function(db) {
+            return "{{ @BASE }}{{ 'config', ['db'=>'{db}'] | alias }}".replace(/\{db\}/, db)
+          },
+          tables: function(db) {
+            return "{{ @BASE }}{{ 'tables', ['db'=>'{db}'] | alias }}".replace(/\{db\}/, db)
+          },
+          rules: function() {
+            return "{{ @BASE }}{{ 'rules' | alias }}"
+          },
+          execute: function() {
+            return "{{ @BASE }}{{ 'execute' | alias }}"
+          }
+        }
+      };
+    })(jQuery);
+  </script>
+  <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+  <script src="assets/bootstrap-select/js/bootstrap-select.min.js"></script>
+  <script src="assets/js/app.js"></script>
+</head>
+<body>
+  <div class="main-layout">
+    <div class="main-header">
+      <div class="container">
+        <div class="row">
+          <nav class="navbar navbar-default navbar-static-top main-navbar">
+            <div class="container-fluid">
+              <!-- Brand and toggle get grouped for better mobile display -->
+              <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-navbar" aria-expanded="false">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="{{ @BASE }}">{{ @app.name }}</a>
+              </div>
+
+              <!-- Collect the nav links, forms, and other content for toggling -->
+              <div class="collapse navbar-collapse" id="main-navbar">
+                <ul class="nav navbar-nav navbar-right">
+                  <li><a href="{{ @BASE }}"><span class="glyphicon glyphicon-dashboard"></span> Dashboard</a></li>
+                </ul>
+              </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+          </nav>
+        </div>
+      </div>
+    </div>
+    <div class="main-content">
+      {{ @CONTENT|raw }}
+    </div>
+    <div class="main-footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 col-md-push-6 footer-column">
+            <strong><span class="tiktok" data-tiktok="{{ time() }}">{{ date('d/m/Y H:i') }}</span></strong>
+          </div>
+          <div class="col-md-6 col-md-pull-6 footer-column">
+            {{ @app.copyright }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
