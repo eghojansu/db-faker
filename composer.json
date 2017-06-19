@@ -1,6 +1,7 @@
 {
     "name": "eghojansu/db-faker",
     "description": "DB faker filler",
+    "license": "MIT",
     "author": [
         {
             "name": "Eko Kurniawan",
