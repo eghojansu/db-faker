@@ -1,4 +1,12 @@
 {
+    "name": "eghojansu/db-faker",
+    "description": "DB faker filler",
+    "author": [
+        {
+            "name": "Eko Kurniawan",
+            "email": "ekokurniawanbs@gmail.com"
+        }
+    ],
     "require": {
         "fzaninotto/faker": "^1.6",
         "bcosca/fatfree-core": "^3.6"
